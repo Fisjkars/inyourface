@@ -1,10 +1,6 @@
 /// SYNACKTIV: convertor class
 package com.synacktiv;
 
-import java.lang.*;
-import java.net.*;
-import java.io.*;
-
 public class Convertor {
         public static Object convert(String object, String type) throws Exception {
                 Object convertedObject = null;

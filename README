@@ -14,15 +14,16 @@
 
 
 -- Compilation -------------------------------------------------
+Install jdeserialize as local dependency (bat & sh script included)
+cd InYourFace
+mvn Install
 
- You can easily compile this tool with Ant. However, if you want to
- prove that you are a Java Compilation Master Certified, I let you
- find the suitable "javac" command yourself :]
+You can directly use : InYouFace-full.jar
 
 
 -- Usage -------------------------------------------------------
 
- $> ./inyourface.sh -h
+ $> java -jar InYouFace-full.jar -h
  Usage: inyourface [options] <viewstate_file>
    Options:
      -h, -help
@@ -48,7 +49,7 @@
 
  1. detect the field to patch:
  
- $> ./inyourface.sh /tmp/viewstate.txt
+ $> java -jar InYouFace-full.jar /tmp/viewstate.txt
  [...]
  [instance 0x7e002b: 0x7e002a/com.itinpractice.beans.ProfileBean
    s_offset: 921 / e_offset: 1109
@@ -66,7 +67,7 @@
  
  2. patch the class field:
  
- $> ./inyourface.sh -outfile /tmp/patched.txt -patch 0x7e002b username "TEST" /tmp/viewstate.txt
+ $> java -jar InYouFace-full.jar -outfile /tmp/patched.txt -patch 0x7e002b username "TEST" /tmp/viewstate.txt
  [...]
  patching instance
  field to patch @ from 1102 to 1109 | [String 0x7e002c: "rdub"]
@@ -75,7 +76,7 @@
  
  3. check the changes:
  
- $> ./inyourface.sh /tmp/patched.txt
+ $> java -jar InYouFace-full.jar /tmp/patched.txt
  [...]
  [instance 0x7e002b: 0x7e002a/com.itinpractice.beans.ProfileBean
    s_offset: 921 / e_offset: 1109
@@ -96,7 +97,7 @@
 
  1. detect the blockdata:
  
- $> ./inyourface.sh /tmp/viewstate.txt
+ $> java -jar InYouFace-full.jar /tmp/viewstate.txt
  [...]
  [instance 0x7e000f: 0x7e000e/org.apache.el.ValueExpressionImpl
    s_offset: 387 / e_offset: 468
@@ -118,11 +119,11 @@
  
  2. patch the blockdata:
  
- $> ./inyourface.sh -outfile /tmp/patched.txt -rawpatch 441 465 /tmp/patch.txt /tmp/viewstate.txt
+ $> java -jar InYouFace-full.jar -outfile /tmp/patched.txt -rawpatch 441 465 /tmp/patch.txt /tmp/viewstate.txt
  
  3. check the patch:
  
- $> ./inyourface.sh /tmp/patched.txt
+ $> java -jar InYouFace-full.jar /tmp/patched.txt
  [...]
  [instance 0x7e000f: 0x7e000e/org.apache.el.ValueExpressionImpl
    s_offset: 387 / e_offset: 655
